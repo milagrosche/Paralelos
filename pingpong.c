@@ -15,9 +15,7 @@ int main(int argc, char **argv){
 		for (i = 1; i < TIMES; i++) {
 			count++;
 			MPI_Send( &count, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
-			
 			MPI_Recv( &count, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-
 			printf("0 Recibe PING cont %i - envia a 1\n", count);
 		}
 	}	
@@ -29,8 +27,6 @@ int main(int argc, char **argv){
 			MPI_Send( &count, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 		}
 	}
-
-    MPI_Finalize();
-
+    	MPI_Finalize();
 	return 0;
 }
